@@ -20,7 +20,7 @@
 
 <p>Ahora descargar el git del bot</p>
 
-``` ts
+``` bash
 > git clone https://github.com/StephynVex/StephynBot1
 ```
 
