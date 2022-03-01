@@ -29,3 +29,23 @@
 ```bash
 > cd StephynBot1
 ```
+
+<p>Ahora instalar algunas librerias</p>
+
+```bash
+> npm i
+> npm i pm2 -g
+```
+
+<p>Para prender el bot</p>
+
+```bash
+> npm start
+```
+
+<p>Extras</p>
+
+```bash
+> pm2 monit //Para ver los console log
+> pm2 kill //Para apagar el bot
+```
