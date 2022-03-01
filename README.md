@@ -4,14 +4,14 @@
 
 <p>Primero actualizar el pkg</p>
 
-```bash
+``` ts
 > pkg update
 > pkg upgrade
 ```
 
 <p>Luego instalar algunas extenciones con el pkg</p>
 
-```bash
+``` ts
 > pkg i nodejs
 > pkg i git
 > pkg i mc
@@ -20,26 +20,26 @@
 
 <p>Ahora descargar el git del bot</p>
 
-```bash
+``` ts
 > git clone https://github.com/StephynVex/StephynBot1
 ```
 
 <p>Ingresar a la carpeta del bot</p>
 
-```bash
+``` ts
 > cd StephynBot1
 ```
 
 <p>Ahora instalar algunas librerias</p>
 
-```bash
+``` ts
 > npm i
 > npm i pm2 -g
 ```
 
 <p>Para prender el bot</p>
 
-```bash
+``` ts
 > npm start
 ```
 
