@@ -18,7 +18,7 @@ const start = async() => {
         
         await client.connect({timeoutMs: 30 * 1000})
         
-        client.on('chat-update', async(mek) => {
+        client.on('chat-update', async(m) => {
                 return
         })
 }
