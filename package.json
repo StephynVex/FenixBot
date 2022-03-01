@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "node index.js"
+    "start": "pm2 start index.js"
   },
   "dependencies": {
     "@adiwajshing/baileys": "^3.5.3"
