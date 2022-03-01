@@ -1,3 +1,4 @@
+
 const { WAConnection } = require('@adiwajshing/baileys');
 const fs = require('fs');
 
@@ -8,15 +9,15 @@ const iniciar = async() => {
 
         client.on('qr', () => console.log('Escanee el codigo'))
 
-        fs.existsSync('./Samu330.json') && client.loadAuthInfo('./Samu330.json')
+        fs.existsSync('./session.json') && client.loadAuthInfo('./session.json')
 
         client.on('connecting', () => console.log('Conectando'))
 
         client.on('open', () => {
         console.log('Conectado exitosamente :D')
 await client.connect({timeoutMs: 30*1000})
-        fs.writeFileSync('./Samu330.json', JSON.stringify(client.base64EncodedAuthInfo(), null, '\t'))
+        fs.writeFileSync('./session.json', JSON.stringify(client.base64EncodedAuthInfo(), null, '\t'))
         })
-        }
+}
 
-iniciar ()
+iniciar()
