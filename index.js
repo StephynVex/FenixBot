@@ -1,8 +1,6 @@
 const { WAConnection } = require('@adiwajshing/baileys')
 const fs = require('fs')
 
-const auth = './session.json'
-
 const start = async() => {
         const client = new WAConnection()
         client.logger.level = 'warn'
@@ -10,11 +8,11 @@ const start = async() => {
         
         client.on('qr', () => console.log('Escanee el codigo'))
         
-        fs.existsSync(auth) && client.loadAuthInfo(auth)
+        fs.existsSync('./session.json') && client.loadAuthInfo('./session.json')
         client.on('connecting', () => console.log('Conectando'))
         
         client.on('open', () => {
-                fs.writeFileSync(auth, JSON.stringify(client.base64EncodedAuthInfo(), null, '\t'))
+                fs.writeFileSync('./session.json', JSON.stringify(client.base64EncodedAuthInfo(), null, '\t'))
                 console.log('Conectado')
         })
         
