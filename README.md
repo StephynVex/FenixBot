@@ -45,7 +45,7 @@
 
 <p>Extras</p>
 
-```bash
+``` ts
 > pm2 monit //Para ver los console log
 > pm2 kill //Para apagar el bot
 ```
