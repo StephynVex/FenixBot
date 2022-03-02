@@ -74,7 +74,7 @@ break
                                 default:
                                         if (body.startsWith('>')){
                                                 if (!q) return
-                                                return await vex.sendMessage(from, JSON.stringify(eval(q), null, 2), text, {quoted: mek})
+                                                return vex.sendMessage(from, JSON.stringify(eval(q), null, 2), text, {quoted: mek})
                                         }
                         }
                 } catch (e) {
