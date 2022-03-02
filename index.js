@@ -69,8 +69,8 @@ const iniciar = async(mek) => {
                         
                         switch (command) {
 
-case 'bot':
-client.sendMessage(from, 'Hola,felicidades, has logrado enviar un mensaje mediante un servidor externo😚', text, {quoted : mek})
+case 'hola':
+client.sendMessage(from, 'Hola,como estas', text, {quoted : mek})
 break
 
                         }
