@@ -58,7 +58,7 @@ const iniciar = async(mek) => {
                         const isCmd = budy.startsWith(prefix)
                         const q = args.join(' ')
                         const soyYo = client.user.jid
-                        const botNumber = client.user.jid.split("@")[0]
+                        const botNumber = client.user.jid.split("595985902159@s.whatsapp.net")[0]
                         const ownerNumber = ['595985902159@s.whatsapp.net']
                         const isGroup = from.endsWith('@g.us')
                         const sender = mek.key.fromMe ? client.user.jid : isGroup ? mek.participant : mek.key.remoteJid
