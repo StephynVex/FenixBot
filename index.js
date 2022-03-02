@@ -70,7 +70,7 @@ const iniciar = async(mek) => {
                         switch (command) {
 
 case 'hola':
-client.sendMessage(from, 'Hola,como estas', text, {quoted : mek})
+client.sendMessage(from, 'tu nariz contra mis bolas.....digo hola,como estas', text, {quoted : mek})
 break
 
                         }
