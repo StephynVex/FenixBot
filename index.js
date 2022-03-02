@@ -1,92 +1,87 @@
 const { WAConnection, MessageType } = require('@adiwajshing/baileys')
 const fs = require('fs')
+
 const prefix = '.'
 
-const iniciar = async(mek) => { 
-        const client = new WAConnection(mek)
-        client.logger.level = 'warn'
-        client.version = [2, 2143, 3]
+const iniciar = async(auth) => {
+        const vex = new WAConnection
         
-        client.on('qr', (mek) => console.log('Escanee el qr'))
-        
-        fs.existsSync('./session.json') && client.loadAuthInfo('./session.json')
-        
-        client.on('connecting', (mek) => console.log('Conectando'))
-        
-        client.on('open', (mek) => console.log('Conectado exitosamente :D'))
-        
-        await client.connect({timeoutMs: 30*1000})
-        fs.writeFileSync('./session.json', JSON.stringify(client.base64EncodedAuthInfo(), null, '\t'))
-        
-        client.on('chat-update', async (mek) => {
-                try {	  
+        vex.logger.level = 'warn'
+	vex.version = [2, 2143, 3]
+	
+	vex.on('qr', () => console.log('Escanee el codigo qr'))
+	
+	fs.existsSync(auth) && vex.loadAuthInfo(auth)
+	vex.on('connecting', () => console.log('Conectando...'))
+	
+	vex.on('open', () => console.log('Conectado exitosamente'))
+	
+	await vex.connect({timeoutMs: 30 * 1000})
+	fs.writeFileSync(auth, JSON.stringify(vex.base64EncodedAuthInfo(), null, '\t'))
+	
+	vex.on('chat-update', (mek) => {
+		try {
                         if (!mek.hasNewMessage) return
                         if (!mek.messages) return
                         if (mek.key && mek.key.remoteJid == 'status@broadcast') return
                         
                         mek = mek.messages.all()[0]
                         if (!mek.message) return
-                        global.blocked
                         mek.message = (Object.keys(mek.message)[0] === 'ephemeralMessage') ? mek.message.ephemeralMessage.message : mek.message
-                        const from = mek.key.remoteJid
-                        const type = Object.keys(mek.message)[0]        
-                        const quoted = type == 'extendedTextMessage' && mek.message.extendedTextMessage.contextInfo != null ? mek.message.extendedTextMessage.contextInfo.quotedMessage || [] : []
-                        const typeQuoted = Object.keys(quoted)[0]
+                        const type = Object.keys(mek.message)[0]
                         const content = JSON.stringify(mek.message)
-                        const { text, extendedText, contact, location, liveLocation, image, video, sticker, document, audio, product } = MessageType
-                        const body = mek.message.conversation || mek.message[type].caption || mek.message[type].text || ""
-                        chats = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : ''
-                        budy = (type === 'conversation' && mek.message.conversation.startsWith(prefix)) ? mek.message.conversation : (type == 'imageMessage') && mek.message.imageMessage.caption.startsWith(prefix) ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption.startsWith(prefix) ? mek.message.videoMessage.caption : (type == 'extendedTextMessage') && mek.message.extendedTextMessage.text.startsWith(prefix) ? mek.message.extendedTextMessage.text : ''
+                        const from = mek.key.remoteJid
+                        const quoted = type == 'extendedTextMessage' && mek.message.extendedTextMessage.contextInfo != null ? mek.message.extendedTextMessage.contextInfo.quotedMessage || [] : []
+                        const body = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : ''
+                        const { text, extendedText, contact, listMessage, buttonsMessage, location, image, video, sticker, document, audio } = MessageType
                         
-                        if (prefix != "") {
+                        if (prefix != '') {
                                 if (!body.startsWith(prefix)) {
                                         cmd = false
-                                        comm = ""
+                                        comm = ''
                                 } else {
                                         cmd = true
-                                        comm = body.slice(1).trim().split(" ").shift().toLowerCase()
+                                        comm = body.slice(1).trim().split(' ').shift().toLowerCase()
                                 }
                         } else {
                                 cmd = false
-                                comm = body.trim().split(" ").shift().toLowerCase()
+                                comm = body.trim().split(' ').shift().toLowerCase()
                         }
                         
                         const command = comm
                         
-                        const arg = chats.slice(command.length + 2, chats.length)
-                        const args = budy.trim().split(/ +/).slice(1)
-                        const isCmd = budy.startsWith(prefix)
+                        const args = body.trim().split(/ +/).slice(1)
+                        const isCmd = body.startsWith(prefix)
                         const q = args.join(' ')
-                        const soyYo = client.user.jid
-                        const botNumber = client.user.jid.split("595985902159@s.whatsapp.net")[0]
-                        const ownerNumber = ['595985902159@s.whatsapp.net']
+                        const soyYo = vex.user.jid
+                        const botNumber = vex.user.jid.split('@')[0]
+                        const ownerNumber = ['595985902159']
                         const isGroup = from.endsWith('@g.us')
-                        const sender = mek.key.fromMe ? client.user.jid : isGroup ? mek.participant : mek.key.remoteJid
-                        const senderNumber = sender.split("@")[0]
-                        const isMe = senderNumber == botNumber
-                        const conts = mek.key.fromMe ? client.user.jid : client.contacts[sender] || { notify: jid.replace(/@.+/, '') }
-                        const pushname = mek.key.fromMe ? client.user.name : conts.notify || conts.vname || conts.name || '-'
+                        const sender = mek.key.fromMe ? vex.user.jid : isGroup ? mek.participant : mek.key.remoteJid
+                        const senderNumber = sender.split('@')[0]
+                        const conts = mek.key.fromMe ? vex.user.jid : vex.contacts[sender] || { notify: jid.replace(/@.+/, '') }
+                        const pushname = mek.key.fromMe ? vex.user.name : conts.notify || conts.vname || conts.name || '-'
+                        
+                        const isMe = botNumber.includes(senderNumber)
+                        const isOwner = ownerNumber.includes(senderNumber)
                         
                         switch (command) {
 
 case 'hola':
-client.sendMessage(from, 'tu nariz contra mis bolas.....digo hola,como estas', text, {quoted : mek})
+vex.sendMessage(from, 'tu nariz contra mis bolas.....digo hola,como estas', text, {quoted : mek})
 break
-                                        
-                                        default:
-                                        
-                                        if (budy.startsWith('>')){
-                                                if (!q) return
-                                                return await reply(JSON.stringify(eval(q), null, 2))
-                                        }
 
+                                default:
+                                        if (body.startsWith('>')){
+                                                if (!q) return
+                                                return await vex.sendMessage(from, JSON.stringify(eval(q), null, 2), text, {quoted: mek})
+                                        }
                         }
-                        
                 } catch (e) {
-                        console.log(e)
+                        const emror = String(e)
+                        console.log(emror)
                 }
-        })      
+        })
 }
 
-iniciar()
-.catch (err => console.log("unexpected error: " + err))
+iniciar('./session.json')
