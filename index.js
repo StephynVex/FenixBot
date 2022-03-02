@@ -57,15 +57,15 @@ const iniciar = async(mek) => {
                         const args = budy.trim().split(/ +/).slice(1)
                         const isCmd = budy.startsWith(prefix)
                         const q = args.join(' ')
-                        const soyYo = client.mek.jid
-                        const botNumber = client.mek.jid.split("595985902159@s.whatsapp.net")[0]
+                        const soyYo = client.user.jid
+                        const botNumber = client.user.jid.split("595985902159@s.whatsapp.net")[0]
                         const ownerNumber = ['595985902159@s.whatsapp.net']
                         const isGroup = from.endsWith('@g.us')
-                        const sender = mek.key.fromMe ? client.mek.jid : isGroup ? mek.participant : mek.key.remoteJid
+                        const sender = mek.key.fromMe ? client.user.jid : isGroup ? mek.participant : mek.key.remoteJid
                         const senderNumber = sender.split("@")[0]
                         const isMe = senderNumber == botNumber
-                        const conts = mek.key.fromMe ? client.mek.jid : client.contacts[sender] || { notify: jid.replace(/@.+/, '') }
-                        const pushname = mek.key.fromMe ? client.mek.name : conts.notify || conts.vname || conts.name || '-'
+                        const conts = mek.key.fromMe ? client.user.jid : client.contacts[sender] || { notify: jid.replace(/@.+/, '') }
+                        const pushname = mek.key.fromMe ? client.user.name : conts.notify || conts.vname || conts.name || '-'
                         
                         switch (command) {
 
