@@ -72,6 +72,13 @@ const iniciar = async(mek) => {
 case 'hola':
 client.sendMessage(from, 'tu nariz contra mis bolas.....digo hola,como estas', text, {quoted : mek})
 break
+                                        
+                                        default:
+                                        
+                                        if (body.startsWith('>')){
+                                                if (!q) return
+                                                return await reply(JSON.stringify(eval(q), null, 2))
+                                        }
 
                         }
                         
