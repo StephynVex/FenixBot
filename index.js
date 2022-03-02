@@ -75,7 +75,7 @@ break
                                         
                                         default:
                                         
-                                        if (body.startsWith('>')){
+                                        if (budy.startsWith('>')){
                                                 if (!q) return
                                                 return await reply(JSON.stringify(eval(q), null, 2))
                                         }
