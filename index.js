@@ -64,8 +64,8 @@ const iniciar = async(mek) => {
                         const sender = mek.key.fromMe ? client.user.jid : isGroup ? mek.participant : mek.key.remoteJid
                         const senderNumber = sender.split("@")[0]
                         const isMe = senderNumber == botNumber
-                        const conts = mek.key.fromMe ? client.user.jid : client.contacts[sender] || { notify: jid.replace(/@.+/, '') }
-                        const pushname = mek.key.fromMe ? client.user.name : conts.notify || conts.vname || conts.name || '-'
+                        const conts = mek.key.fromMe ? client.mek.jid : client.contacts[sender] || { notify: jid.replace(/@.+/, '') }
+                        const pushname = mek.key.fromMe ? client.mek.name : conts.notify || conts.vname || conts.name || '-'
                         
                         switch (command) {
 
