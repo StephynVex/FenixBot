@@ -80,6 +80,10 @@ vex.sendMessage(from, fs.readFileSync('./media/AUD-20220217-WA1463.mp3'), audio,
 
 break
 
+case 'menu':
+vex.sendMessage(from, 'no disponible actualmente :D', text, {quoted : mek})
+break
+
                                 default:
                                         if (body.startsWith('>')){
                                                 if (!q) return
