@@ -94,7 +94,6 @@ case 'onichan':
 vex.sendMessage(from, fs.readFileSync('./media/AUD-20220302-WA0205.mp3'), audio, {quoted: mek, ptt: true, mimetype: 'audio/mp4'})
 
 break
-
 	}
 
                                 default:
