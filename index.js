@@ -95,34 +95,34 @@ vex.sendMessage(from, fs.readFileSync('./media/AUD-20220302-WA0205.mp3'), audio,
 
 break
 
-if (budy.includes("https://wa.me/")){
+if (body.includes("https://wa.me/")){
 		if (!isGroup) return
 		if (!isAntiWa) return
                 if (isGroupAdmins) return reply('Eres un administrador del grupo, así que no te prohibiré el uso de enlaces :)')
-		client.updatePresence(from, Presence.composing)
+		vex.updatePresence(from, Presence.composing)
 		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
 		reply(`*LINK DE WHATSAPP DETECTADO 📢* ${sender.split("@")[0]} Usted sera eliminado de este grupo`)
 		setTimeout( () => {
-			client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+			vex.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
 		}, 0)
 		setTimeout( () => {
-			client.updatePresence(from, Presence.composing)
+			vex.updatePresence(from, Presence.composing)
 			reply("Adios mi loco")
 		}, 0)
 	}
 			
-	if (budy.includes("wa.me")){
+	if (body.includes("wa.me")){
 		if (!isGroup) return
 		if (!isAntiWa) return
                 if (isGroupAdmins) return reply('Eres un administrador del grupo, así que no te prohibiré el uso de enlaces :)')
-		client.updatePresence(from, Presence.composing)
+		vex.updatePresence(from, Presence.composing)
 		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
 		reply(`*LINK DE WHATSAPP DETECTADO 📢* ${sender.split("@")[0]} Usted sera eliminado de este grupo`)
 		setTimeout( () => {
-			client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+			vex.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
 		}, 0)
 		setTimeout( () => {
-			client.updatePresence(from, Presence.composing)
+			vex.updatePresence(from, Presence.composing)
 			reply("Adios mi loco")
 		}, 0)
 	}
