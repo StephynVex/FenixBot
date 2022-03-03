@@ -89,6 +89,12 @@ case 'llama':
 vex.sendMessage(from, fs.readFileSync('./media/AUD-20220302-WA0190.mp3'), audio, {quoted: mek, ptt: true, mimetype: 'audio/mp4'})
 
 break
+
+case 'llama':
+vex.sendMessage(from, fs.readFileSync('./media/AUD-20220302-WA0205.mp3'), audio, {quoted: mek, ptt: true, mimetype: 'audio/mp4'})
+
+break
+
                                 default:
                                         if (body.startsWith('>')){
                                                 if (!q) return
