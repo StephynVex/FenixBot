@@ -76,7 +76,7 @@ vex.sendMessage(from, 'concuerdo', text, {quoted : mek})
 break
 
 case 'taelao':
-vex.sendMessage(from, fs.readFileSync('./media/AUD-20220217-WA1463.mp3'), audio, {quoted: mek, ptt: true mimetype: 'audio/mp4'})
+vex.sendMessage(from, fs.readFileSync('./media/AUD-20220217-WA1463.mp3'), audio, {quoted: mek, ptt: true, mimetype: 'audio/mp4'})
 
 break
 
