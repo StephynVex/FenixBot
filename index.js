@@ -70,6 +70,7 @@ const iniciar = async(auth) => {
 case 'hola':
 vex.sendMessage(from, 'tu nariz contra mis bolas.....digo hola,como estas', text, {quoted : mek})
 break
+
 case 'everisgay':
 vex.sendMessage(from, 'concuerdo', text, {quoted : mek})
 break
