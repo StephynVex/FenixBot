@@ -95,6 +95,11 @@ vex.sendMessage(from, fs.readFileSync('./media/AUD-20220302-WA0205.mp3'), audio,
 
 break
 
+if (body.includes('chat.whatsapp.net/') {
+vex.sendMessage(from, 'Ha sido detectado un link de whatsapp', text, {quoted: mek})
+vex.groupRemove(from, [sender])
+}
+
 
 	}
 
