@@ -95,8 +95,6 @@ vex.sendMessage(from, fs.readFileSync('./media/AUD-20220302-WA0205.mp3'), audio,
 
 break
 
-
-
 	}
 
                                 default:
