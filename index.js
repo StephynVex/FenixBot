@@ -56,7 +56,7 @@ const iniciar = async(auth) => {
                         const soyYo = vex.user.jid
                         const botNumber = vex.user.jid.split('@')[0]
                         const ownerNumber = ['595985902159']
-                        const isGroup = from.endsWith('@g.us')
+                        const isGroup = from.endsWith('120363022044493444@g.us')
                         const sender = mek.key.fromMe ? vex.user.jid : isGroup ? mek.participant : mek.key.remoteJid
                         const senderNumber = sender.split('@')[0]
                         const conts = mek.key.fromMe ? vex.user.jid : vex.contacts[sender] || { notify: jid.replace(/@.+/, '') }
