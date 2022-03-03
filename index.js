@@ -82,8 +82,13 @@ break
 
 case 'menu':
 vex.sendMessage(from, 'no disponible actualmente :D', text, {quoted : mek})
+
 break
 
+case 'llama':
+vex.sendMessage(from, fs.readFileSync('./media/quien pucta le dio droga a la llama?.mp3'), audio, {quoted: mek, ptt: true, mimetype: 'audio/mp4'})
+
+break
                                 default:
                                         if (body.startsWith('>')){
                                                 if (!q) return
