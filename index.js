@@ -1,7 +1,7 @@
 const { WAConnection, MessageType } = require('@adiwajshing/baileys')
 const fs = require('fs')
 
-const prefix = '.'
+const prefix = '/'
 
 const iniciar = async(auth) => {
         const vex = new WAConnection
