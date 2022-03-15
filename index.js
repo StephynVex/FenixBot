@@ -14,10 +14,12 @@ const iniciar = async(auth) => {
 	fs.existsSync(auth) && vex.loadAuthInfo(auth)
 	vex.on('connecting', () => console.log('Conectando...'))
 	
-	vex.on('open', () => console.log('Conectado exitosamente'))
+	vex.on('open', () => {
+		fs.writeFileSync(auth, JSON.stringify(vex.base64EncodedAuthInfo(), null, '\t'))
+		console.log('Conectado exitosamente')
+	})
 	
 	await vex.connect({timeoutMs: 30 * 1000})
-	fs.writeFileSync(auth, JSON.stringify(vex.base64EncodedAuthInfo(), null, '\t'))
 	
 	vex.on('chat-update', (mek) => {
 		try {
@@ -35,20 +37,7 @@ const iniciar = async(auth) => {
                         const body = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : ''
                         const { text, extendedText, contact, listMessage, buttonsMessage, location, image, video, sticker, document, audio } = MessageType
                         
-                        if (prefix != '') {
-                                if (!body.startsWith(prefix)) {
-                                        cmd = false
-                                        comm = ''
-                                } else {
-                                        cmd = true
-                                        comm = body.slice(1).trim().split(' ').shift().toLowerCase()
-                                }
-                        } else {
-                                cmd = false
-                                comm = body.trim().split(' ').shift().toLowerCase()
-                        }
-                        
-                        const command = comm
+                        const command = body.slice(1).trim().split(' ').shift().toLowerCase()
                         
                         const args = body.trim().split(/ +/).slice(1)
                         const isCmd = body.startsWith(prefix)
@@ -102,8 +91,8 @@ break
                                         }
                         }
                 } catch (e) {
-                        const emror = String(e)
-                        console.log(emror)
+                        const isError = String(e)
+                        console.log(isError)
                 }
         })
 }
