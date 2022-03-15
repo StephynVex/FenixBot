@@ -21,13 +21,13 @@
 <p>Ahora descargar el git del bot</p>
 
 ``` bash
-> git clone https://github.com/StephynVex/StephynBot1
+> git clone https://github.com/StephynVex/FenixBot
 ```
 
 <p>Ingresar a la carpeta del bot</p>
 
 ``` ts
-> cd StephynBot1
+> cd FenixBot
 ```
 
 <p>Ahora instalar algunas librerias</p>
