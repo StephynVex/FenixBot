@@ -4,7 +4,7 @@ const fs = require('fs')
 
 
 const ownerNumber = ['595985902159']
-const prefix = '/'
+const prefix = '.'
 
 const connectToWA = async() => {
 	const conn = new WAConnection()
