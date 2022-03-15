@@ -97,4 +97,4 @@ break
         })
 }
 
-iniciar('.')
+iniciar('')
