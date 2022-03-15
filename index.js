@@ -85,5 +85,5 @@ break
 	})
 }
 
-connectToWA('./session.json')
+connectToWA()
 
