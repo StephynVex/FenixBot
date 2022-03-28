@@ -67,7 +67,7 @@ const iniciar = async(auth) => {
                         
                         switch (command) {
 
-case (body == ('hola')): {
+case 'hola':
 vex.sendMessage(from, 'tu nariz contra mis bolas.....digo hola,como estas', text, {quoted : mek})
 break
 
