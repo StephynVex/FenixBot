@@ -108,4 +108,4 @@ break
         })
 }
 
-iniciar()
+iniciar('./session.json')
