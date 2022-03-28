@@ -96,6 +96,7 @@ message: {
 "documentMessage": {"title": "SephynVex🍷", 'jpegThumbnail:
 fs.readFileSync('./media/fenix.png')}}
 }}
+
 break
 
 case 'onichan':
