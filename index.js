@@ -87,15 +87,6 @@ break
 
 case 'llama':
 vex.sendMessage(from, fs.readFileSync('./media/AUD-20220302-WA0190.mp3'), audio, {quoted: mek, ptt: true, mimetype: 'audio/mp4'})
-{quoted: {key: {
-fromMe: false.
-participant: '0@s.whatsapp.net'. ...(from? {
-remoteJid: "status@broadcast" } : {})
-}.
-message: {
-"documentMessage": {"title": "SephynVex🍷", 'jpegThumbnail:
-fs.readFileSync('./media/fenix.png')}}
-}}
 
 break
 
