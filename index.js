@@ -95,26 +95,6 @@ vex.sendMessage(from, fs.readFileSync('./media/AUD-20220302-WA0205.mp3'), audio,
 
 break
 
-case 'welcome':
-if (!isGroup) return reply(vex.only.group)
-if (!isUser) return reply(vex.only.daftarB)
-if (!isGroupAdmins) return reply(vex.only.admin)
-if (!isGroupAdmins) return reply(vex.only.Badmin)
-if (args.length < 1) return reply('Para activar está funcion coloca *welcome 1')
-if (Number(args[0]) === 1) {
-if (isWelkom) return reply('Ya esta activada!!!')
-welkom.push(from)
-fs.writeFileSync('./database/json/welkom.json', JSON.stringify(welkom))
-reply('❬ ✅ ❭ La funcion de bienvenida esta habilitada en este grupo')
-} else if (Number(args[0]) === 0) {
-welkom.splice(from)
-fs.writeFileSync('./database/json/welkom.json', JSON.stringify(welkom))
-reply('❬ ✅ ❭ La funcion de bienvenida esta deshabilitada en este grupo')
-} else {
-reply('Escribe el comando 1 para activarlo y 0 para desactivarlo Ejemplo: *welcome 1')
-}
-break
-
                                 default:
                                         if (body.startsWith('>')){
                                                 if (!q) return
