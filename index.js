@@ -68,32 +68,9 @@ const iniciar = async(auth) => {
                         switch (command) {
 
 case 'hola':
-vex.sendMessage(from, 'tu nariz contra mis bolas.....digo hola,como estas', text, {quoted : mek})
+vex.sendMessage(from, 'hola,como estas? :D', text, {quoted : mek})
 break
 
-case 'everisgay':
-vex.sendMessage(from, 'concuerdo', text, {quoted : mek})
-break
-
-case 'taelao':
-vex.sendMessage(from, fs.readFileSync('./media/AUD-20220217-WA1463.mp3'), audio, {quoted: mek, ptt: true, mimetype: 'audio/mp4'})
-
-break
-
-case 'menu':
-vex.sendMessage(from, 'no disponible actualmente :D', text, {quoted : mek})
-
-break
-
-case 'llama':
-vex.sendMessage(from, fs.readFileSync('./media/AUD-20220302-WA0190.mp3'), audio, {quoted: mek, ptt: true, mimetype: 'audio/mp4'})
-
-break
-
-case 'onichan':
-vex.sendMessage(from, fs.readFileSync('./media/AUD-20220302-WA0205.mp3'), audio, {quoted: mek, ptt: true, mimetype: 'audio/mp4'})
-
-break
 
                                 default:
                                         if (body.startsWith('>')){
