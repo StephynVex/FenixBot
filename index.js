@@ -94,8 +94,7 @@ case 'onichan':
 vex.sendMessage(from, fs.readFileSync('./media/AUD-20220302-WA0205.mp3'), audio, {quoted: mek, ptt: true, mimetype: 'audio/mp4'})
 
 break
-case 'logo'
-const reply = async(teks) => { await vex.sendMessage(from, teks, MessageType.text, { quoted: { key: { 		fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "mimetype": "image/jpeg", "caption": `\n${command} ${q}`, 'jpegThumbnail': fs.readFileSync('./media/fenix.png')}}		} 		})		}
+
                                 default:
                                         if (body.startsWith('>')){
                                                 if (!q) return
