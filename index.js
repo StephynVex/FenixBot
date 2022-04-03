@@ -97,7 +97,7 @@ break
 
 {quoted: {key: {
 fromMe: false,
-participant,'0@s.whatsapp.net', ...[from? {
+participant,'0@s.whatsapp.net',[from? {
 remoteJid: "status@broadcast" } : {}]
 },
 message: {
