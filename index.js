@@ -95,13 +95,13 @@ vex.sendMessage(from, fs.readFileSync('./media/AUD-20220302-WA0205.mp3'), audio,
 
 break
 
-{quoted: {key:{
+{quoted: {key: {
 fromMe: false,
-participant: '0@s.whatsapp.net', ...(from?{
-remoteJid: "status@broadcast"}:{})
+participant: '0@s.whatsapp.net', ...(from? {
+remoteJid: "status@broadcast" } : {})
 },
-message:{
-"documentMessage":{"title": "SephynVex🍷",'jpegThumbnail:
+message: {
+"documentMessage": {"title": "SephynVex🍷",'jpegThumbnail:
 fs.readFileSync('./media/fenix.png')}}
 }}
 
