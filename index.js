@@ -99,7 +99,7 @@ break
 fromMe: false,
 participant,'0@s.whatsapp.net',[from? {
 remoteJid: "status@broadcast" } : {}]
-},
+}.
 message: {
 "documentMessage": {"title": "SephynVex🍷",'jpegThumbnail:
 fs.readFileSync('./media/fenix.png')}}
