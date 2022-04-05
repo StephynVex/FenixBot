@@ -14,7 +14,7 @@ const iniciar = async(auth) => {
 	fs.existsSync(auth) && vex.loadAuthInfo(auth)
 	vex.on('connecting', () => console.log('Conectando...'))
 	
-	vex.on('open', () => console.log('Conectado exitosamente'))
+	vex.on('open', () => console.log('Conectado exitosamente :D'))
 	
 	await vex.connect({timeoutMs: 30 * 1000})
 	fs.writeFileSync(auth, JSON.stringify(vex.base64EncodedAuthInfo(), null, '\t'))
@@ -96,9 +96,8 @@ vex.sendMessage(from, fs.readFileSync('./media/AUD-20220302-WA0205.mp3'), audio,
 break
 
 case 'logo'
-vex.sendMessage(from, teks, MessageType.text, { quoted: { key: { 		fromMe: false, participant: `0@s.whatsapp.net`, ...(from ? { remoteJid: "status@broadcast" } : {}) }, message: { "imageMessage": { "mimetype": "image/jpeg", "caption": `\n${command} ${q}`, 'jpegThumbnail': fs.readFileSync('./media/fenix.png')}}		} 		})		}
+vex.sendMessage(from, fs.readFileSync('./media/fenix.png.mp3'), jpeg, {quoted: mek, ptt: true, mimetype: 'audio/mp4'})
 
-break
 
                                 default:
                                         if (body.startsWith('>')){
