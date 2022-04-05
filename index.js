@@ -95,10 +95,6 @@ vex.sendMessage(from, fs.readFileSync('./media/AUD-20220302-WA0205.mp3'), audio,
 
 break
 
-case 'logo'
-vex.sendMessage(from, fs.readFileSync('./media/fenix.png.mp3'), jpeg, {quoted: mek, ptt: true, mimetype: 'audio/mp4'})
-
-
                                 default:
                                         if (body.startsWith('>')){
                                                 if (!q) return
